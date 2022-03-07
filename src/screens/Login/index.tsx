@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, KeyboardAvoidingView, Image, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, Animated, Platform } from 'react-native';
 
 import { styles } from './styles';
 import fodinhaLogo from '../../assets/FodinhaAppNoBG.png';
@@ -23,11 +23,13 @@ export function Login() {
 
   function handleSubmit() {
     console.log(email, password);
-    alert('oi')
   }
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
+      style={styles.container}
+    >
       <View style={styles.imageContainer}>
         <Image
           resizeMode='contain'

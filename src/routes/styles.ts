@@ -1,15 +1,17 @@
 import { StyleSheet } from 'react-native';
+import { theme } from '../global/styles/theme';
 
 export const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
+    bottom: 25,
+    left: 15,
+    right: 15,
     elevation: 20,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.secondary70,
     borderRadius: 15,
     height: 60,
+    borderTopWidth: 0,
   },
   shadow: {
     shadowColor: "#7F5DF0",

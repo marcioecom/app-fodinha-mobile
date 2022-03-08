@@ -24,16 +24,32 @@ export function MyTabs() {
 
     >
       <Screen
+        name="Home"
+        component={Ranking}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <TabBottomIcon
+              label="Home"
+              color={color}
+              size={size}
+              focused={focused}
+              icon="home"
+            />
+          )
+        }}
+      />
+
+      <Screen
         name="Ranking"
         component={Ranking}
         options={{
-          tabBarLabel: "Ranking",
           tabBarIcon: ({ color, size, focused }) => (
             <TabBottomIcon
               label="Ranking"
               color={color}
+              size={size}
               focused={focused}
-              icon={() => <Feather name="trending-up" size={size} color={color} />}
+              icon="bar-chart-2"
             />
           )
         }}
@@ -43,9 +59,24 @@ export function MyTabs() {
         name="Match"
         component={Ranking}
         options={{
-          tabBarLabel: "Ranking",
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: () => (
             <TabBottomBtn />
+          )
+        }}
+      />
+
+      <Screen
+        name="Teste"
+        component={Login}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <TabBottomIcon
+              label="Coca"
+              color={color}
+              size={size}
+              focused={focused}
+              icon="dollar-sign"
+            />
           )
         }}
       />
@@ -59,8 +90,9 @@ export function MyTabs() {
             <TabBottomIcon
               label="Perfil"
               color={color}
+              size={size}
               focused={focused}
-              icon={() => <Feather name="user" size={size} color={color} />}
+              icon="user"
             />
           )
         }}

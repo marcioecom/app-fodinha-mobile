@@ -4,21 +4,18 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: getStatusBarHeight() + 40,
+    marginTop: getStatusBarHeight() + 30,
     flex: 1,
   },
   title: {
     textAlign: 'center',
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
-    fontSize: 24
-  },
-  table: {
-    flex: 1,
+    fontSize: 32
   },
   tableHead: {
     backgroundColor: theme.colors.secondary70,
-    marginTop: 40,
+    marginTop: 30,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -29,6 +26,9 @@ export const styles = StyleSheet.create({
     color: theme.colors.highlight,
     fontFamily: theme.fonts.text400,
     fontSize: 15
+  },
+  table: {
+    flex: 1,
   },
   ranking: {
     width: '100%',

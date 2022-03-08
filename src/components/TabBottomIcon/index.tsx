@@ -1,21 +1,30 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
 type TabBottomIconProps = {
-  icon: React.FC,
+  icon: keyof typeof Feather.glyphMap,
   label: string,
+  size: number,
   color: string,
   focused: boolean,
 }
 
-export function TabBottomIcon({ icon: Icon, label, color, focused }: TabBottomIconProps) {
+export function TabBottomIcon({ icon, label, size, color, focused }: TabBottomIconProps) {
+  const { highlight } = theme.colors;
+
   return (
     <View style={styles.container}>
-      <Icon />
+      <Feather
+        size={size}
+        name={icon}
+        color={focused ? color : highlight}
+      />
       <Text
         style={[styles.label,
-          { color: focused ? color : "#748c94" }
+          { color: focused ? color : highlight }
         ]}
       >
         { label }

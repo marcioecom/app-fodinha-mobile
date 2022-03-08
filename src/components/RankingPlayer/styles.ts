@@ -10,11 +10,6 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   rankingColumn: {},
-  position: {
-    fontSize: 16,
-    color: theme.colors.highlight,
-    fontFamily: theme.fonts.text500,
-  },
   playerName: {
     color: theme.colors.heading,
     fontSize: 16,

@@ -6,6 +6,7 @@ import fodinhaLogo from '../../assets/FodinhaAppNoBG.png';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { Background } from '../../components/Background';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -26,47 +27,49 @@ export function Login() {
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
-      style={styles.container}
-    >
-      <View style={styles.imageContainer}>
-        <Image
-          resizeMode='contain'
-          source={fodinhaLogo}
-          style={styles.image}
-        />
-      </View>
-
-      <Animated.View
-        style={[
-          styles.form,
-          { transform: [{ translateY: offset.y }] }
-        ]}
+    <Background>
+      <KeyboardAvoidingView
+        behavior={ Platform.OS === 'ios' ? 'padding' : 'height' }
+        style={styles.container}
       >
-        <Input
-          label="Email"
-          autoCorrect={false}
-          autoCapitalize="none"
-          onChangeText={(newEmail) => setEmail(newEmail)}
-          defaultValue={email}
-        />
-        <Input
-          label="Senha"
-          secureTextEntry
-          autoCorrect={false}
-          autoCapitalize="none"
-          onChangeText={(newPassword) => setPassword(newPassword)}
-          defaultValue={password}
-        />
-
-        <View style={styles.submitBtn}>
-          <Button
-            title="Entrar"
-            onPress={handleSubmit}
+        <View style={styles.imageContainer}>
+          <Image
+            resizeMode='contain'
+            source={fodinhaLogo}
+            style={styles.image}
           />
         </View>
-      </Animated.View>
-    </KeyboardAvoidingView>
+
+        <Animated.View
+          style={[
+            styles.form,
+            { transform: [{ translateY: offset.y }] }
+          ]}
+        >
+          <Input
+            label="Email"
+            autoCorrect={false}
+            autoCapitalize="none"
+            onChangeText={(newEmail) => setEmail(newEmail)}
+            defaultValue={email}
+          />
+          <Input
+            label="Senha"
+            secureTextEntry
+            autoCorrect={false}
+            autoCapitalize="none"
+            onChangeText={(newPassword) => setPassword(newPassword)}
+            defaultValue={password}
+          />
+
+          <View style={styles.submitBtn}>
+            <Button
+              title="Entrar"
+              onPress={handleSubmit}
+            />
+          </View>
+        </Animated.View>
+      </KeyboardAvoidingView>
+    </Background>
   )
 }

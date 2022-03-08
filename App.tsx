@@ -6,6 +6,7 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import { Login } from './src/screens/Login';
 import { Background } from './src/components/Background';
+import { Ranking } from './src/screens/Ranking';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,8 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Login />
+      <Ranking />
+      {/* <Login /> */}
     </Background>
   );
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Feather } from '@expo/vector-icons';
 import { Login } from '../screens/Login';
 import { Ranking } from '../screens/Ranking';
-import { theme } from '../global/styles/theme';
 import { styles } from './styles';
 import { TabBottomIcon } from '../components/TabBottomIcon';
 import { TabBottomBtn } from '../components/TabBottomBtn';

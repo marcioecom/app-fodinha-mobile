@@ -5,6 +5,8 @@ import { Ranking } from '../screens/Ranking';
 import { styles } from './styles';
 import { TabBottomIcon } from '../components/TabBottomIcon';
 import { TabBottomBtn } from '../components/TabBottomBtn';
+import { CreateGame } from '../screens/CreateGame';
+import { Home } from '../screens/Home';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -23,7 +25,7 @@ export function MyTabs() {
     >
       <Screen
         name="Home"
-        component={Ranking}
+        component={Home}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabBottomIcon
@@ -55,7 +57,7 @@ export function MyTabs() {
 
       <Screen
         name="Match"
-        component={Ranking}
+        component={CreateGame}
         options={{
           tabBarIcon: () => (
             <TabBottomBtn />
@@ -64,7 +66,7 @@ export function MyTabs() {
       />
 
       <Screen
-        name="Teste"
+        name="Coca"
         component={Login}
         options={{
           tabBarIcon: ({ color, size, focused }) => (

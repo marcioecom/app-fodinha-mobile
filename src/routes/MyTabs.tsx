@@ -16,6 +16,7 @@ export function MyTabs() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           ...styles.tabBar,
           ...styles.shadow

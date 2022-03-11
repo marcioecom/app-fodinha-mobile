@@ -38,9 +38,10 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   viewBtn: {
-    width: '100%',
-    position: 'absolute',
-    alignSelf: 'center',
-    bottom: 100,
+    marginTop: 20,
+    // width: '100%',
+    // position: 'absolute',
+    // alignSelf: 'center',
+    // bottom: 100,
   }
 })

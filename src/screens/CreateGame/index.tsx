@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import MultiSelect from 'react-native-multiple-select';
 import { Background } from '../../components/Background';
 import { Button } from '../../components/Button';
 import { theme } from '../../global/styles/theme';
+import { useMatch } from '../../hooks/useMatch';
 import { api } from '../../services/api';
 import { styles } from './styles';
 
-type ItemType = {
-  id: string,
-  name: string,
-}
-
 export function CreateGame() {
+  const { createMatch } = useMatch();
   const [items, setItems] = useState([]);
-  const [selectedItems, setSelectedItem] = useState<ItemType[]>([]);
+  const [selectedItems, setSelectedItem] = useState<string[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -25,12 +21,17 @@ export function CreateGame() {
     })();
   }, []);
 
-  function handleSelectedItems(selectedItem: ItemType[]) {
+  function handleSelectedItems(selectedItem: string[]) {
     setSelectedItem(selectedItem)
   }
 
-  function handleCreateMatch() {
-    console.log(selectedItems);
+  async function handleCreateMatch() {
+    try {
+      createMatch(selectedItems);
+    } catch (error: any) {
+      console.log(error.message);
+      alert(error.message);
+    }
   }
 
   return (

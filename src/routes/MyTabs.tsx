@@ -57,7 +57,7 @@ export function MyTabs() {
       />
 
       <Screen
-        name="Match"
+        name="CreateMatch"
         component={CreateGame}
         options={{
           tabBarIcon: () => (

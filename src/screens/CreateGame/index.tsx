@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { KeyboardAvoidingView, Platform, Text, View } from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import { Background } from '../../components/Background';
@@ -9,6 +10,7 @@ import { api } from '../../services/api';
 import { styles } from './styles';
 
 export function CreateGame() {
+  const navigation = useNavigation();
   const { createMatch } = useMatch();
   const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItem] = useState<string[]>([]);
@@ -28,6 +30,8 @@ export function CreateGame() {
   async function handleCreateMatch() {
     try {
       createMatch(selectedItems);
+
+      navigation.navigate("Game")
     } catch (error: any) {
       console.log(error.message);
       alert(error.message);

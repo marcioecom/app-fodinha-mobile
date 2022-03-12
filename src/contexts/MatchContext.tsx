@@ -20,10 +20,9 @@ function MatchProvider({ children }: MatchProviderProps) {
     setPlayers(playersIds);
 
     try {
-      const res = await api.post("/matches", { players: playersIds });
+      await api.post("/matches", { players: playersIds });
 
-
-      console.log(res.data);
+      // console.log(res.data);
     } catch (error: any) {
       console.log(error.message);
       throw new Error(error);

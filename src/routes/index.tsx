@@ -9,13 +9,20 @@ const { Navigator, Screen } = createStackNavigator();
 export function Routes() {
   return (
     <NavigationContainer>
-      <Navigator>
+      <Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+      >
         <Screen
           name="Root"
           component={MyTabs}
           options={{ headerShown: false }}
         />
-        <Screen name="Game" component={Game} />
+        <Screen
+          name="Game"
+          component={Game}
+        />
       </Navigator>
     </NavigationContainer>
   )

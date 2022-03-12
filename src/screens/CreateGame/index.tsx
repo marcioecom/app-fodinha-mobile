@@ -31,7 +31,7 @@ export function CreateGame() {
     try {
       createMatch(selectedItems);
 
-      navigation.navigate("Game")
+      navigation.navigate("Game" as never)
     } catch (error: any) {
       console.log(error.message);
       alert(error.message);

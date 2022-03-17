@@ -4,9 +4,11 @@ import { Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { api } from '../../services/api';
 import { styles } from './styles';
+import { useMatch } from '../../hooks/useMatch';
 
 type PlayerPointsProps = {
-  userId: string;
+  userId: string,
+  position: number,
 }
 
 type PlayerType = {
@@ -15,9 +17,9 @@ type PlayerType = {
   avatar: string | null
 }
 
-export function PlayerPoints({ userId }: PlayerPointsProps) {
+export function PlayerPoints({ userId, position }: PlayerPointsProps) {
+  const { handlePlus, handleMinus, points } = useMatch();
   const [player, setPlayer] = useState<PlayerType | null>();
-  const [points, setPoints] = useState(5);
 
   useEffect(() => {
     (async () => {
@@ -26,14 +28,6 @@ export function PlayerPoints({ userId }: PlayerPointsProps) {
     })();
   }, []);
 
-  function handleMinus() {
-    setPoints(prev => prev - 1);
-  }
-
-  function handlePlus() {
-    setPoints(prev => prev + 1);
-  }
-
   return (
     <View style={styles.container}>
       <Text style={styles.playerName}>
@@ -41,15 +35,21 @@ export function PlayerPoints({ userId }: PlayerPointsProps) {
       </Text>
 
       <View style={styles.counter}>
-        <RectButton onPress={handlePlus} style={styles.btn}>
+        <RectButton
+          onPress={() => handlePlus(position)}
+          style={styles.btn}
+        >
           <Feather name="plus" color="white" size={20} />
         </RectButton>
 
         <Text style={styles.point}>
-          { points }
+          { points[position] }
         </Text>
 
-        <RectButton onPress={handleMinus} style={styles.btn}>
+        <RectButton
+          onPress={() => handleMinus(position)}
+          style={styles.btn}
+        >
           <Feather name="minus" color="white" size={20} />
         </RectButton>
       </View>

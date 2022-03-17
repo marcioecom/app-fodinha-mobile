@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "AppFodinha",
+    "slug": "AppFodinha",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,6 +20,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.marciojr.appfodinha",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#141d37"

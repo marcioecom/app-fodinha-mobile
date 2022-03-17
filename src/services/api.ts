@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "http://192.168.1.117:3001"
+  baseURL: "https://app-fodinha.herokuapp.com/"
 });

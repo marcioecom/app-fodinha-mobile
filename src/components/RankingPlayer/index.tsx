@@ -19,6 +19,9 @@ interface IPlayer {
 }
 
 export function RankingPlayer({ player }: IPlayer) {
+  const date = new Date(player.updated_at);
+  const fullDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
   return (
     <>
       <View style={styles.container}>
@@ -40,7 +43,7 @@ export function RankingPlayer({ player }: IPlayer) {
 
         <View style={styles.rankingColumn}>
           <Text style={styles.lastWin}>
-            { new Date(Date.parse(player.updated_at)).toLocaleDateString() }
+            { fullDate }
           </Text>
         </View>
       </View>

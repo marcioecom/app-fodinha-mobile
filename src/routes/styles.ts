@@ -1,17 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { theme } from '../global/styles/theme';
 
 export const styles = StyleSheet.create({
   tabBar: {
-    position: 'absolute',
-    bottom: getBottomSpace() + 25,
-    left: 15,
-    right: 15,
-    elevation: 20,
     backgroundColor: theme.colors.secondary70,
-    borderRadius: 15,
-    height: 60,
+    height: 65,
     borderTopWidth: 0,
     padding: 10,
   },

@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Login } from '../screens/Login';
 import { Ranking } from '../screens/Ranking';
 import { styles } from './styles';
 import { TabBottomIcon } from '../components/TabBottomIcon';
@@ -41,22 +40,6 @@ export function MyTabs() {
       />
 
       <Screen
-        name="Ranking"
-        component={Ranking}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => (
-            <TabBottomIcon
-              label="Ranking"
-              color={color}
-              size={size}
-              focused={focused}
-              icon="bar-chart-2"
-            />
-          )
-        }}
-      />
-
-      <Screen
         name="CreateMatch"
         component={CreateGame}
         options={{
@@ -67,33 +50,16 @@ export function MyTabs() {
       />
 
       <Screen
-        name="Coca"
-        component={Login}
+        name="Ranking"
+        component={Ranking}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabBottomIcon
-              label="Coca"
+              label="Ranking"
               color={color}
               size={size}
               focused={focused}
-              icon="dollar-sign"
-            />
-          )
-        }}
-      />
-
-      <Screen
-        name="Profile"
-        component={Login}
-        options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size, focused }) => (
-            <TabBottomIcon
-              label="Perfil"
-              color={color}
-              size={size}
-              focused={focused}
-              icon="user"
+              icon="bar-chart-2"
             />
           )
         }}

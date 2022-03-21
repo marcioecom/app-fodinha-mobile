@@ -5,6 +5,12 @@ type MatchProviderProps = {
   children: ReactNode,
 }
 
+type MatchType = {
+  id: string,
+  winner: string | null,
+  players: string[],
+}
+
 type WinnerType = {
   player: string;
   poinsts: number;
@@ -20,11 +26,15 @@ type MatchContextType = {
   handlePlus: (position: number) => void,
   handleMinus: (position: number) => void,
   winner: WinnerType | undefined,
+  setWinner: React.Dispatch<React.SetStateAction<WinnerType | undefined>>,
+  match: MatchType | undefined,
+  setMatch: React.Dispatch<React.SetStateAction<MatchType | undefined>>,
 }
 
 const MatchContext = createContext({} as MatchContextType);
 
 function MatchProvider({ children }: MatchProviderProps) {
+  const [match, setMatch] = useState<MatchType | undefined>();
   const [players, setPlayers] = useState<string[]>([]);
   const [points, setPoints] = useState<number[]>([]);
   const [winner, setWinner] = useState<WinnerType | undefined>()
@@ -57,7 +67,8 @@ function MatchProvider({ children }: MatchProviderProps) {
     setPlayers([...playersIds]);
 
     try {
-      await api.post("/matches", { players: playersIds });
+      api.post("/matches", { players: playersIds })
+        .then((res) => setMatch(res.data));
 
     } catch (error: any) {
       console.log(error.message);
@@ -82,7 +93,17 @@ function MatchProvider({ children }: MatchProviderProps) {
   }
 
   const context = {
-    players, setPlayers, createMatch, points, setPoints, handlePlus, handleMinus, winner
+    players,
+    setPlayers,
+    createMatch,
+    points,
+    setPoints,
+    handlePlus,
+    handleMinus,
+    winner,
+    setWinner,
+    match,
+    setMatch
   };
 
   return (

@@ -3,6 +3,9 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
+  keyboardView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     marginTop: getStatusBarHeight()
@@ -22,4 +25,7 @@ export const styles = StyleSheet.create({
   content: {
     padding: 20,
   },
+  btnGoHome: {
+    padding: 20
+  }
 })

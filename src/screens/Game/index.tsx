@@ -13,7 +13,7 @@ import { Button } from '../../components/Button';
 
 export function Game() {
   const navigation = useNavigation();
-  const { players, setPoints, winner, setWinner } = useMatch();
+  const { players, setPoints, winner, setWinner, deleteMatch, match } = useMatch();
   const [showWinner, setShowWinner] = useState(false);
 
   useEffect(() => {
@@ -29,6 +29,11 @@ export function Game() {
   }, [winner])
 
   function goToHome() {
+    if (!match) return;
+
+    if (!winner) {
+      deleteMatch(match.id)
+    }
     setWinner(undefined);
     navigation.navigate("Home" as never)
   }
@@ -36,6 +41,7 @@ export function Game() {
   function closeModal() {
     setWinner(undefined);
     setShowWinner(false);
+    navigation.navigate("Home" as never)
   }
 
   return (

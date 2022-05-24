@@ -21,6 +21,7 @@ type MatchContextType = {
   players: string[],
   setPlayers: React.Dispatch<React.SetStateAction<string[]>>,
   createMatch: (playersIds: string[]) => void,
+  deleteMatch: (matchId: string) => void,
   points: number[],
   setPoints: React.Dispatch<React.SetStateAction<number[]>>,
   handlePlus: (position: number) => void,
@@ -76,6 +77,16 @@ function MatchProvider({ children }: MatchProviderProps) {
     }
   }
 
+  async function deleteMatch(matchId: string) {
+    try {
+      await api.delete(`/matches/${matchId}`)
+
+    } catch (error: any) {
+      console.log(error.message);
+      throw new Error(error);
+    }
+  }
+
   function handleMinus(position: number) {
     if (points[position] === 0) return;
     const updatedPoints = points
@@ -96,6 +107,7 @@ function MatchProvider({ children }: MatchProviderProps) {
     players,
     setPlayers,
     createMatch,
+    deleteMatch,
     points,
     setPoints,
     handlePlus,

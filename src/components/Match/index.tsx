@@ -7,7 +7,6 @@ import { api } from '../../services/api';
 import { styles } from './styles';
 
 type MatchProps = {
-  index: number;
   match: IMatch;
 }
 
@@ -20,7 +19,7 @@ type WinnerType = {
   }
 }
 
-export function Match({ match, index }: MatchProps) {
+export function Match({ match }: MatchProps) {
   const [winnerinfo, setWinnerinfo] = useState<WinnerType>();
   const { secondary50, secondary70 } = theme.colors;
 

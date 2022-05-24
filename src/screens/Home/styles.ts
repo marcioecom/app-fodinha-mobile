@@ -16,8 +16,12 @@ export const styles = StyleSheet.create({
   podium: {
     paddingHorizontal: 24,
   },
-  matches: {
+  matchesContainer: {
+    flex: 1,
     marginTop: 10,
     paddingHorizontal: 24,
+  },
+  matches: {
+    width: '100%',
   }
 })

@@ -1,5 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { Background } from '../../components/Background';
 import { ListHeader } from '../../components/ListHeader';
 import { Match } from '../../components/Match';
@@ -16,11 +18,14 @@ export interface IMatch {
 }
 
 export function Home() {
+  const navigation = useNavigation();
   const [matches, setMatches] = useState<IMatch[]>([]);
 
   useEffect(() => {
-    api.get("/matches")
-      .then((res) => setMatches(res.data))
+    navigation.addListener('focus', () => {
+      api.get("/matches")
+        .then((res) => setMatches(res.data))
+    });
   }, [])
 
   return (
@@ -35,13 +40,17 @@ export function Home() {
 
       <ListHeader title="Partidas" subtitle={`Total ${matches.length}`} />
 
-      <View style={styles.matches}>
-        { matches 
-          ? (matches.map((match, i) => (
-            <Match match={match} index={i} key={i} />
-          )))
-          : <Text>Sem partidas recentes</Text>
-        }
+      <View style={styles.matchesContainer}>
+        <FlatList
+          data={matches}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <Match match={item} />
+          )}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 20 }}
+          style={styles.matches}
+        />
       </View>
     </Background>
   )

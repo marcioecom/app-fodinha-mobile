@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
+import { API_URL } from "react-native-dotenv";
 
 export const api = axios.create({
-  baseURL: "https://app-fodinha.herokuapp.com/"
+  baseURL: API_URL
 });

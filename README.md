@@ -16,15 +16,19 @@ There was a idea of a app to easily handle points of a game named "Fodinha" (i k
 ### Screens
 
 #### Home
-![](./readmeAssets/home.jpg)
+<img src="/readmeAssets/home.jpeg" alt="home screenshot" style="width:300px;"/>
 
 #### Create Game
-![](./readmeAssets/create-game-1.jpg)
-![](./readmeAssets/create-game-2.jpg)
+<div style="display: flex;">
+  <img src="/readmeAssets/create-game-1.jpeg" alt="home screenshot" style="width:300px;"/>
+  <img src="/readmeAssets/create-game-2.jpeg" alt="home screenshot" style="width:300px;"/>
+</div>
 
 #### Game
-![](./readmeAssets/game-1.jpg)
-![](./readmeAssets/game-2.jpg)
+<div style="display: flex;">
+  <img src="/readmeAssets/game-1.jpeg" alt="home screenshot" style="width:300px;"/>
+  <img src="/readmeAssets/game-2.jpeg" alt="home screenshot" style="width:300px;"/>
+</div>
 
 #### Ranking
-![](./readmeAssets/ranking.jpg)
+<img src="/readmeAssets/ranking.jpeg" alt="home screenshot" style="width:300px;"/>

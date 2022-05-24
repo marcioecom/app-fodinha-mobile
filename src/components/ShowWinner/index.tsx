@@ -7,7 +7,10 @@ import { useMatch } from '../../hooks/useMatch';
 type PlayerType = {
   id: string,
   name?: string,
-  avatar: string | null
+  avatar: string | null,
+  ranking: {
+    points: number,
+  }
 }
 
 export function ShowWinner() {
@@ -17,15 +20,15 @@ export function ShowWinner() {
 
   useEffect(() => {
     (async () => {
-      api.get(`/users/info/${winner?.player}`)
-        .then((res) => setPlayerWinner(res.data));
+      const { data: playerWinnerData } = await api.get(`/users/info/${winner?.player}`);
+      setPlayerWinner(playerWinnerData);
 
-      api.put('/ranking', { userId: winner?.player })
+      api.put('/ranking', { userId: playerWinnerData?.id })
         .then((res) => setNewPoints(res.data.points))
 
-      await api.put(`/matches/${match?.id}`, { winnerId: playerWinner?.id })
+      await api.put(`/matches/${match?.id}`, { winnerId: playerWinnerData.id })
     })();
-  }, []);
+  }, [winner]);
 
   return (
     <View style={styles.container}>

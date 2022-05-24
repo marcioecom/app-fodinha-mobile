@@ -15,5 +15,9 @@ export const styles = StyleSheet.create({
   },
   podium: {
     paddingHorizontal: 24,
+  },
+  matches: {
+    marginTop: 10,
+    paddingHorizontal: 24,
   }
 })

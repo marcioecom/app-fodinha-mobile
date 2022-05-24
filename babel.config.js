@@ -3,20 +3,16 @@ module.exports = function(api) {
   return {
     presets: [
       'babel-preset-expo',
-      'module:react-native-dotenv', {
-        "moduleName": "react-native-dotenv"
-        // "envName": "APP_ENV",
-        // "moduleName": "@env",
-        // "path": ".env",
-        // "blocklist": null,
-        // "allowlist": [
-        //   "API_URL",
-        //   "API_TOKEN"
-        // ],
-        // "safe": false,
-        // "allowUndefined": true,
-        // "verbose": false
-      }
     ],
+    plugins: [
+      ["module:react-native-dotenv", {
+        "moduleName": "@env",
+        "path": ".env",
+        "blacklist": null,
+        "whitelist": null,
+        "safe": false,
+        "allowUndefined": true
+      }]
+    ]
   };
 };
